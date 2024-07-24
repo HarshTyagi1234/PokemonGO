@@ -8,7 +8,7 @@ export default function Dashboard({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   const selectedCartoon = (cartoon) => {
-    navigation.navigate("detail", {
+    navigation.navigate("Detail", {
       data: cartoon,
     });
   };
