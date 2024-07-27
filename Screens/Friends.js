@@ -1,63 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import { View, FlatList, StyleSheet } from "react-native";
-// import ListCard from "../Components/ListCard";
-// import ListImage from "../Components/ListImage";
-// import { allCartoons } from "../Components/constant";
-
-// export default function NewScreen({ route }) {
-//   const [movies, setMovies] = useState([]);
-
-//   useEffect(() => {
-//     fetch("http://localhost:3000/animated")
-//       .then((response) => response.json())
-//       .then((json) => {
-//         setMovies(json);
-//       })
-//       .catch((error) => {
-//         console.warn(error);
-//       });
-//   }, []);
-
-//   const renderListItem = ({ item, index }) => {
-//     if (index === 0) {
-      
-//       return (
-//         <FlatList
-//           horizontal
-//           data={movies}
-//           renderItem={({ item }) => <ListImage item={item} />}
-//           keyExtractor={(item) => item.id.toString()}
-//           showsHorizontalScrollIndicator={false}
-//         />
-//       );
-//     } else {
-     
-//       return <ListCard item={item} />;
-//     }
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <FlatList
-//         data={[{ key: "horizontalList" }, ...allCartoons]}
-//         renderItem={renderListItem}
-//         keyExtractor={(item, index) => index.toString()}
-//       />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#000",
-//     paddingHorizontal: 10,
-//     paddingTop: 5,
-//   },
-// });
-
-
-
 import React, { useState, useEffect } from "react";
 import { View, FlatList, ScrollView, StyleSheet } from "react-native";
 import ListCard from "../Components/ListCard";
@@ -90,7 +30,8 @@ export default function NewScreen({ route }) {
           {
             <FlatList
               horizontal={true}
-              data={movies}
+              scrollEnabled={false}
+              data={movies} 
               renderItem={({ item, index }) => {
                 return <ListImage item={item} />;
               }}
@@ -100,7 +41,7 @@ export default function NewScreen({ route }) {
 
         {/* Content Vertical Scroll*/}
         {allCartoons.map((cartoon) => (
-          <ListCard item={cartoon} />
+          <ListCard item={cartoon} key={cartoon.id} />
         ))}
       </ScrollView>
     </View>
@@ -116,8 +57,7 @@ const styles = StyleSheet.create({
   },
   scrollViewContainer: {
     alignItems: "center",
-    paddingBottom:10
-
+    paddingBottom: 10,
   },
   box: {
     width: "100%",

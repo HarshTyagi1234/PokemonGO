@@ -1,9 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Enemy from '../Screens/Enemy'
-
 const Stack = createStackNavigator();
-
 const EnemyStackNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{
@@ -13,5 +11,7 @@ const EnemyStackNavigator = () => {
     </Stack.Navigator>
   )
 }
-
 export default EnemyStackNavigator
+
+
+
